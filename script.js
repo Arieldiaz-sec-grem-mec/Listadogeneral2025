@@ -105,6 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
             <span class="arrow">▶</span>
           </div>
           <div class="course-content">
+            <!-- Vista de tabla para desktop -->
             <div class="table-container">
               <table>
                 <thead>
@@ -131,6 +132,31 @@ document.addEventListener('DOMContentLoaded', function () {
                   `).join('')}
                 </tbody>
               </table>
+            </div>
+            
+            <!-- Vista de cards para móvil -->
+            <div class="mobile-cards">
+              ${students.map(student => `
+                <div class="mobile-card">
+                  <h4>${student.APELLIDO}, ${student.NOMBRE}</h4>
+                  <div class="info-row">
+                    <span class="label">DNI:</span>
+                    <span class="value">${student.DNI || 'N/A'}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Empresa:</span>
+                    <span class="value">${student.EMPRESA || 'N/A'}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Teléfono:</span>
+                    <span class="value">${formatPhoneNumber(student.TELEFONO)}</span>
+                  </div>
+                  <div class="info-row">
+                    <span class="label">Email:</span>
+                    <span class="value">${student.MAILS || 'N/A'}</span>
+                  </div>
+                </div>
+              `).join('')}
             </div>
           </div>
         </div>
