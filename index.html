@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Listado de Alumnos por Curso</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 20px;
+      background-color: #f5f5f5;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      color: #2c3e50;
+      margin-bottom: 30px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .course-section {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 25px;
+      overflow: hidden;
+    }
+
+    .course-header {
+      background-color: #3498db;
+      color: white;
+      padding: 15px 20px;
+      font-size: 1.2em;
+      font-weight: bold;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .course-header:hover {
+      background-color: #2980b9;
+    }
+
+    .course-content {
+      padding: 0;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-out;
+    }
+
+    .course-content.show {
+      max-height: 2000px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      font-weight: 600;
+    }
+
+    tr:hover {
+      background-color: #f9f9f9;
+    }
+
+    .loading {
+      text-align: center;
+      padding: 30px;
+      font-size: 1.2em;
+      color: #7f8c8d;
+    }
+
+    .error {
+      text-align: center;
+      padding: 30px;
+      font-size: 1.2em;
+      color: #e74c3c;
+      background-color: #fadbd8;
+      border-radius: 8px;
+      margin: 20px 0;
+    }
+
+    .stats {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 1.1em;
+      color: #7f8c8d;
+    }
+
+    .search-container {
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+    }
+
+    #searchInput {
+      flex: 1;
+      padding: 10px 15px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+
+    #searchButton {
+      padding: 10px 20px;
+      background-color: #3498db;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    #searchButton:hover {
+      background-color: #2980b9;
+    }
+
+    .arrow {
+      transition: transform 0.3s;
+    }
+
+    .arrow.down {
+      transform: rotate(90deg);
+    }
+
+    .contact-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nowrap {
+      white-space: nowrap;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Listado de Alumnos por Curso</h1>
+    <div class="stats" id="stats">
+      Cargando datos...
+    </div>
+
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="Buscar por nombre, apellido, empresa o curso...">
+      <button id="searchButton">Buscar</button>
+    </div>
+
+
+
+    <div id="dataContainer">
+      <div class="loading">Cargando información...</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
